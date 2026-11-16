@@ -1,5 +1,23 @@
 # civ-autoloader
 
+## About this fork / このフォークについて
+
+This fork of [SeanHeuc/civ-autoloader](https://github.com/SeanHeuc/civ-autoloader) changes one thing: the `third_party/CivSwitchFS` submodule points to [yyoossk/CivSwitchFS](https://github.com/yyoossk/CivSwitchFS), which adds two improvements to the payload the autoloader save runs:
+
+1. **Timing learning** — The winning FS timing schedule is recorded in the save and reused from the next boot on, so kaiHEN boots at a high rate from the second boot onward (verified on real hardware).
+2. **Freeze fix** — IPC sends are bounded (10 s), so an unresponsive FS service stops the run safely with a message instead of freezing the console at `Checking the canary window...`.
+
+Everything else is upstream civ-autoloader. Verified on real hardware (Switch 2, firmware 23.0.1, Japanese console and the Japanese version of Civilization VII); the homemade loader (kaiHEN Installer) also booted with the Japanese software.
+
+このフォークは [SeanHeuc/civ-autoloader](https://github.com/SeanHeuc/civ-autoloader) の `third_party/CivSwitchFS` サブモジュールの向き先を、改良版の [yyoossk/CivSwitchFS](https://github.com/yyoossk/CivSwitchFS) に変更したものです。改良は2点です。
+
+1. **タイミング学習** — 成功した FS タイミングをセーブに記録して次回から再利用します。実機では2回目以降に高い確率で kaiHEN が起動しました。
+2. **フリーズ修正** — IPC 送信に10秒の上限を付け、FS 無応答時は「Checking the canary window...」で固まらずにメッセージを表示して安全に終了します。
+
+それ以外は upstream の civ-autoloader のままです。実機確認済み (Switch 2 / FW 23.0.1 / 国内版本体・日本版シヴィライゼーション7)。自作ローダー (kaiHEN Installer) も日本版のソフトで起動しました。
+
+---
+
 Autoloader for **Civilization VII** on Switch 2.
 
 A host joins the game's local-wireless lobby, delivers the CivSwitch userland
