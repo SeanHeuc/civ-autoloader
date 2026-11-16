@@ -1,6 +1,6 @@
 [submodule "third_party/CivSwitchFS"]
 	path = third_party/CivSwitchFS
-	url = https://github.com/SeanHeuc/CivSwitchFS.git
+	url = https://github.com/yyoossk/CivSwitchFS.git
 [submodule "third_party/kaihen"]
 	path = third_party/kaihen
 	url = https://github.com/SeanHeuc/kaihen.git
